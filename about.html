@@ -3,20 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node JS</title>
+    <title>Node JS - About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
+<style>
+      .text-center {
+        text-align: center;
+        padding: 10px;
+    }
+    .btn-light {
+        border: 1px solid black;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>
 <body>
-   <header>
-       <span>Crash course: node js</span>
-       <li>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-    </li>
-   </header>
-   <main>
-       <h1>Hello About page</h1>
-   </main>
+    <nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" href="#">Crash couse Node.JS (Basic) </a>
+   </nav>
+   <div class="container" style="margin-bottom: 50px; margin-top: 50px;">
+     <div class="row">
+         <div class="col-md-3 col-6 text-center" text-center><button type="button" class="btn btn-light"><a href="/">index page</a></button></div>
+         <div class="col-md-3 col-6 text-center"><button type="button" class="btn btn-light"><a href="/about">about page</a></button></div>
+         <div class="col-md-3 col-6 text-center"><button type="button" class="btn btn-light"><a href="/apis/users">JSON mock user</a></button></div>
+         <div class="col-md-3 col-6 text-center"><button type="button" class="btn btn-light"><a href="/apis/posts">JSON mock post</a></button></div>
+    </div>
+   </div>
 
-    
-</body>
+   <div class="jumbotron jumbotron-fluid" style="height: 70vh; background-color: #f1ffff;">
+    <div class="container">
+      <h1 class="display-4">About Page</h1>
+      <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam ex asperiores, tempore libero fugiat delectus rerum voluptatibus saepe maxime voluptas tempora nihil quas aliquam dolorum commodi provident ab facere mollitia?.</p>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+ </body>
 </html>
