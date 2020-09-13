@@ -1,3 +1,4 @@
+const moment = require('moment')
 const { sayHello, calculateVat } = require('./utils');
 sayHello();
 const vat7 = calculateVat(1000, 7);
@@ -34,15 +35,17 @@ connect.on('online', () => {
 // connect.emit('online')
 // connect.emit('online')
 
-const http = require('http')
+const http = require('http');
+const { stringify } = require('querystring');
+const { URLSearchParams } = require('url');
 
 function getPage(page) {
     const filePath = path.join(__dirname, page);
     return fs.readFileSync(filePath);
 }
-http.createServer((req, res) => {
-    const fileType = path.extname(req.url) || '.html';
 
+function handleFiles(req, res) {
+    const fileType = path.extname(req.url) || '.html';
     if (fileType == '.html') {
         res.setHeader('Content-Type', 'text/html');
         res.writeHead(200);
@@ -61,7 +64,56 @@ http.createServer((req, res) => {
         res.writeHead(404)
         res.end();
     }
+}
 
+
+
+function getData(url) {
+    console.log("url >>", url)
+    let data;
+    if (url == '/apis/users') {
+        data = [
+        {
+            name: "John"
+        },
+        {
+            name: "Andruw"
+        }
+    ];
+    } else if (url == '/apis/posts') {
+        data = [
+            {
+                Title: "News 1",
+                publishedDate: moment().startOf().fromNow()
+            },
+            {
+                Title: "News 2",
+                publishedDate: moment().startOf().fromNow()
+            }
+        ];
+        
+    }
+    return data
+}
+
+function handlesAPIs(req, res) {
+    let data = getData(req.url);
+    console.log("data >>", req.url)
+    if (data) {
+        res.setHeader('Content-Type', 'application/json')
+        res.write(JSON.stringify(data))
+    } else {
+        res.writeHead(404)
+    }
+    res.end()
+}
+
+http.createServer((req, res) => {
+    if (req.url.startsWith('/apis/')){
+        handlesAPIs(req, res);
+    } else {
+        handleFiles(req, res);
+    }
 }).listen(3000);
 
 
